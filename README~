@@ -9,7 +9,7 @@ ABOUT
 
 Just configuration files for the Bash and Conky (bash colorized, conky metroUI style)
 
-NOTE: If you wanna use .bash_profile or .bashrc file in your System, don't load both
+If you wanna use .bash_profile or .bashrc file in your System, don't load both
 
 TEST
 -----------------------------------------------------------------------------

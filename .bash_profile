@@ -15,10 +15,10 @@
 # Git options.
 #------------------------------------------------------------------------------
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "[UNCOMMITED]"
 }
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]$(parse_git_dirty)/"
 }
 
 #------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ if [ "$BASH" ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\000[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   else
     # PS1='\u@\h:\w > '
-    PS1='\u@\h\[\033[1;34m\] $ \[\033[1;32m\]\w\[\033[0;27m\]$(parse_git_branch) > '
+    PS1='felipe@macbook-air\[\033[0;35m\] $ \[\033[0;35m\]\w\[\033[0;27m\]$(parse_git_branch) > '
   fi
 else
   if [ "`id -u`" -eq 0 ]; then
@@ -97,8 +97,8 @@ complete -A directory     cd rmdir
 # Colorized ls.
 #------------------------------------------------------------------------------
 # eval `dircolors ~/.dir_colors`
-export LS_OPTIONS='--color=auto'
-alias ls='ls $LS_OPTIONS'
+# export LS_OPTIONS='--color=auto'
+# alias ls='ls $LS_OPTIONS'
 
 
 #------------------------------------------------------------------------------
@@ -222,6 +222,8 @@ alias redis='redis-server /opt/local/etc/redis.conf'
 
 alias gemset='rvm gemset'
 
+alias test_app='bundle exec rake test_app && cd spec/dummy'
+
 #------------------------------------------------------------------------------
 # Import local/private settings.
 #------------------------------------------------------------------------------
@@ -234,7 +236,7 @@ fi
 # User-dependent Settings.
 #------------------------------------------------------------------------------
 #if [ "`id -u`" -eq 0 ]; then
-umask 022
+#  umask 022
 #else
 #  umask 077
 
@@ -257,3 +259,11 @@ umask 022
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH

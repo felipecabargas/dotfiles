@@ -37,7 +37,7 @@ ZSH_THEME="awesomepanda"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -56,9 +56,9 @@ export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/he
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='nano'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nano'
 # fi
 
 # Compilation flags

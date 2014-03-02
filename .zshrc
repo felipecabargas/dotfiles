@@ -10,9 +10,10 @@ ZSH_THEME="awesomepanda"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias c="clear"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -45,13 +46,13 @@ ZSH_THEME="awesomepanda"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn)
+plugins=(git svn gem heroku pow rails rvm vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/heroku/bin:/Users/Felipe/.rvm/gems/ruby-2.0.0-p195/bin:/Users/Felipe/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/Felipe/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/Felipe/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/Felipe/.rvm/bin"
+export PATH="/Users/Felipe/.rvm/gems/ruby-2.0.0-p353/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/heroku/bin:/Users/Felipe/.rvm/gems/ruby-2.0.0-p353@global/bin:/Users/Felipe/.rvm/rubies/ruby-2.0.0-p353/bin:/Users/Felipe/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -67,3 +68,4 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

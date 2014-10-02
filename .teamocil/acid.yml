@@ -1,0 +1,16 @@
+windows:
+  - name: git
+    root: ~/Hacking/Acid/Development/efizity-empresas/platform
+    layout: single
+    panes:
+      - git status
+  - name: server
+    root: ~/Hacking/Acid/Development/efizity-empresas/platform
+    layout: single
+    panes:
+      - rails s
+  - name: console
+    root: ~/Hacking/Acid/Development/efizity-empresas/platform
+    layout: single
+    panes:
+      - rails c

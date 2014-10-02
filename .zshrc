@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+set -o vi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="custom"
+ZSH_THEME="rubyist"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,13 +46,14 @@ export UPDATE_ZSH_DAYS=14
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails textmate ruby)
+plugins=(git rails textmate ruby tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+compctl -g '~/.teamocil/*(:t:r)' teamocil
 
 export PATH="/Users/Felipe/.rvm/gems/ruby-2.1.2/bin:/Users/Felipe/.rvm/gems/ruby-2.1.2@global/bin:/Users/Felipe/.rvm/rubies/ruby-2.1.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/Felipe/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -61,9 +63,9 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
+  export EDITOR='vim'
 else
-  export EDITOR='nano'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -80,3 +82,4 @@ fi
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"

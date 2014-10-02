@@ -1,0 +1,25 @@
+ name: reciclario
+ windows:
+      - name: git
+        root: ~/Hacking/Rails/reciclario
+        panes:
+           - ggpull
+
+      - name: rails server
+        root: ~/Hacking/Rails/reciclario
+        panes:
+           - commands:
+                - bundle install
+                - rake db:migrate 
+                - bin/rails server
+
+      - name: rails console
+        root: ~/Hacking/Rails/reciclario
+        panes:
+            - bin/rails console
+
+      - name: vim
+        root: ~/Hacking/Rails/reciclario
+        focus: true
+        panes:
+            - vim 

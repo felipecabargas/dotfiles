@@ -13,7 +13,7 @@ ZSH_THEME="rubyist"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
-
+MAILCHECK=0
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=14
 
@@ -37,7 +37,7 @@ export UPDATE_ZSH_DAYS=14
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -46,16 +46,13 @@ export UPDATE_ZSH_DAYS=14
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails textmate ruby tmux)
+plugins=(git rails ruby tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-compctl -g '~/.teamocil/*(:t:r)' teamocil
-
-export PATH="/Users/Felipe/.rvm/gems/ruby-2.1.2/bin:/Users/Felipe/.rvm/gems/ruby-2.1.2@global/bin:/Users/Felipe/.rvm/rubies/ruby-2.1.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/Felipe/.rvm/bin"
+export PATH="$PATH:/Users/Felipe/.rvm/gems/ruby2.1.2@reciclario/bin/Users/Felipe/.rvm/gems/ruby-2.1.2@reciclario/bin:/Users/Felipe/.rvm/gems/ruby-2.1.2/bin:/Users/Felipe/.rvm/gems/ruby-2.1.2@global/bin:/Users/Felipe/.rvm/rubies/ruby-2.1.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/Felipe/.rvm/bin:/Applications/Postgres93.app/Contents/MacOS/bin:/Users/Felipe/Library/Android/sdk/platform-tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -83,3 +80,27 @@ fi
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias exut="exit"
+alias exot="exit"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && "$HOME/.rvm/scripts/rvm"
+
+## Custom highlight script to paste code in RTF format
+
+function light() {
+  if [ -z "$2" ]
+    then src="pbpaste"
+  else
+    src="cat $2"
+  fi
+  $src | highlight -O rtf --syntax $1 --font Inconsolata --style seashell --font-size 16 | pbcopy
+}
+
+function ghc() {
+  git clone https://github.com/$1.git
+}
+
+export NVM_DIR="/Users/Felipe/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
